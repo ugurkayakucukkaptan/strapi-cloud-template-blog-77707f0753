@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepage_google_reviews",
+  "info": {
+    "singularName": "homepage-google-review",
+    "pluralName": "homepage-google-reviews",
+    "displayName": "Homepage-google_review"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "GoogleReviewTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "GoogleReviewSecondTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "GoogleReviewDescription": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}

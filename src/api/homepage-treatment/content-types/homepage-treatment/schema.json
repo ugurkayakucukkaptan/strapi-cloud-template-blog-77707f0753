@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "homepage_treatments",
+  "info": {
+    "singularName": "homepage-treatment",
+    "pluralName": "homepage-treatments",
+    "displayName": "Homepage-treatment"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "TreatmentTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "TreatmentDescriptionTitle": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "TreatmentDescription": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    }
+  }
+}
