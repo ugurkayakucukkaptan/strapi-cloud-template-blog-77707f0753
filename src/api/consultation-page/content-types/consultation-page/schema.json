@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "contact_pages",
+  "collectionName": "consultation_pages",
   "info": {
-    "singularName": "contact-page",
-    "pluralName": "contact-pages",
-    "displayName": "ContactPage",
+    "singularName": "consultation-page",
+    "pluralName": "consultation-pages",
+    "displayName": "ConsultationPage",
     "description": ""
   },
   "options": {
@@ -16,9 +16,9 @@
     }
   },
   "attributes": {
-    "ContactPage": {
+    "ConsultationSEO": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "shared.seo",
       "pluginOptions": {
         "i18n": {
