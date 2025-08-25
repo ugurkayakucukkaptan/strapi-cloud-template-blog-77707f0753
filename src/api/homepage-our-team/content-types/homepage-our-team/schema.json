@@ -4,8 +4,7 @@
   "info": {
     "singularName": "homepage-our-team",
     "pluralName": "homepage-our-teams",
-    "displayName": "Homepage-our_team",
-    "description": ""
+    "displayName": "HomepageOurTeam"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,7 @@
     }
   },
   "attributes": {
-    "OurTeamTitle": {
+    "Title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,7 +23,7 @@
         }
       }
     },
-    "OurTeamSecondTitle": {
+    "SectionTitle": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -32,24 +31,13 @@
         }
       }
     },
-    "OurTeamDescription": {
+    "Description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
-    },
-    "OurTeamSliderImages": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
     }
   }
 }

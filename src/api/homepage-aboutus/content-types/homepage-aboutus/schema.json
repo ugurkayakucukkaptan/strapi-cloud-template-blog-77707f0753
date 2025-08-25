@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "homepage_blogs",
+  "collectionName": "homepage_aboutuses",
   "info": {
-    "singularName": "homepage-blog",
-    "pluralName": "homepage-blogs",
-    "displayName": "HomepageBlog"
+    "singularName": "homepage-aboutus",
+    "pluralName": "homepage-aboutuses",
+    "displayName": "homepageAboutus"
   },
   "options": {
     "draftAndPublish": true
@@ -23,16 +23,18 @@
         }
       }
     },
-    "SectionTitle": {
-      "type": "string",
+    "Description": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
     },
-    "Description": {
-      "type": "text"
+    "AboutusSlider": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.slider"
     }
   }
 }

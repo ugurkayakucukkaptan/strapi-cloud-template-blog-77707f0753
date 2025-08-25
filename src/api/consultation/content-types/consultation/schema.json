@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "homepage_blogs",
+  "collectionName": "consultations",
   "info": {
-    "singularName": "homepage-blog",
-    "pluralName": "homepage-blogs",
-    "displayName": "HomepageBlog"
+    "singularName": "consultation",
+    "pluralName": "consultations",
+    "displayName": "Consultation"
   },
   "options": {
     "draftAndPublish": true
@@ -23,16 +23,13 @@
         }
       }
     },
-    "SectionTitle": {
-      "type": "string",
+    "Description": {
+      "type": "text",
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       }
-    },
-    "Description": {
-      "type": "text"
     }
   }
 }

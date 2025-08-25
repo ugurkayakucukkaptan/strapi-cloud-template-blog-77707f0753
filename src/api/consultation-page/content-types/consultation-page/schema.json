@@ -25,6 +25,9 @@
           "localized": true
         }
       }
+    },
+    "dummy": {
+      "type": "boolean"
     }
   }
 }

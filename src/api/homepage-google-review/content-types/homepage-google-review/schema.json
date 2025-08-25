@@ -4,8 +4,7 @@
   "info": {
     "singularName": "homepage-google-review",
     "pluralName": "homepage-google-reviews",
-    "displayName": "Homepage-google_review",
-    "description": ""
+    "displayName": "HomepageGoogleReview"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,7 @@
     }
   },
   "attributes": {
-    "GoogleReviewTitle": {
+    "Title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,7 +23,7 @@
         }
       }
     },
-    "GoogleReviewSecondTitle": {
+    "SectionTitle": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -32,7 +31,7 @@
         }
       }
     },
-    "GoogleReviewDescription": {
+    "Description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {

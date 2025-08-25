@@ -608,12 +608,56 @@ export interface ApiConsultationPageConsultationPage
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    dummy: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::consultation-page.consultation-page'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiConsultationConsultation extends Struct.SingleTypeSchema {
+  collectionName: 'consultations';
+  info: {
+    displayName: 'Consultation';
+    pluralName: 'consultations';
+    singularName: 'consultation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::consultation.consultation'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -661,7 +705,6 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
 export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
   collectionName: 'contact_uses';
   info: {
-    description: '';
     displayName: 'ContactUs';
     pluralName: 'contact-uses';
     singularName: 'contact-us';
@@ -675,27 +718,27 @@ export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    ContactUsDescription: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ContactUsTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::contact-us.contact-us'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -734,14 +777,13 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiHomepageAboutUsHomepageAboutUs
+export interface ApiHomepageAboutusHomepageAboutus
   extends Struct.SingleTypeSchema {
-  collectionName: 'homepage_about_uses';
+  collectionName: 'homepage_aboutuses';
   info: {
-    description: '';
-    displayName: 'Homepage-about_us';
-    pluralName: 'homepage-about-uses';
-    singularName: 'homepage-about-us';
+    displayName: 'homepageAboutus';
+    pluralName: 'homepage-aboutuses';
+    singularName: 'homepage-aboutus';
   };
   options: {
     draftAndPublish: true;
@@ -752,31 +794,28 @@ export interface ApiHomepageAboutUsHomepageAboutUs
     };
   };
   attributes: {
-    AboutUsDescription: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    AboutUsSliderImages: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    AboutUsTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+    AboutusSlider: Schema.Attribute.Component<'shared.slider', true>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
-      'api::homepage-about-us.homepage-about-us'
+      'api::homepage-aboutus.homepage-aboutus'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -786,8 +825,7 @@ export interface ApiHomepageAboutUsHomepageAboutUs
 export interface ApiHomepageBlogHomepageBlog extends Struct.SingleTypeSchema {
   collectionName: 'homepage_blogs';
   info: {
-    description: '';
-    displayName: 'Homepage-blog';
+    displayName: 'HomepageBlog';
     pluralName: 'homepage-blogs';
     singularName: 'homepage-blog';
   };
@@ -800,33 +838,28 @@ export interface ApiHomepageBlogHomepageBlog extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    BlogDescription: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    BlogSecondTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    BlogTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homepage-blog.homepage-blog'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    SectionTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -837,8 +870,7 @@ export interface ApiHomepageGoogleReviewHomepageGoogleReview
   extends Struct.SingleTypeSchema {
   collectionName: 'homepage_google_reviews';
   info: {
-    description: '';
-    displayName: 'Homepage-google_review';
+    displayName: 'HomepageGoogleReview';
     pluralName: 'homepage-google-reviews';
     singularName: 'homepage-google-review';
   };
@@ -854,19 +886,7 @@ export interface ApiHomepageGoogleReviewHomepageGoogleReview
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    GoogleReviewDescription: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    GoogleReviewSecondTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    GoogleReviewTitle: Schema.Attribute.String &
+    Description: Schema.Attribute.Text &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -878,6 +898,18 @@ export interface ApiHomepageGoogleReviewHomepageGoogleReview
       'api::homepage-google-review.homepage-google-review'
     >;
     publishedAt: Schema.Attribute.DateTime;
+    SectionTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -888,8 +920,7 @@ export interface ApiHomepageOurTeamHomepageOurTeam
   extends Struct.SingleTypeSchema {
   collectionName: 'homepage_our_teams';
   info: {
-    description: '';
-    displayName: 'Homepage-our_team';
+    displayName: 'HomepageOurTeam';
     pluralName: 'homepage-our-teams';
     singularName: 'homepage-our-team';
   };
@@ -905,34 +936,30 @@ export interface ApiHomepageOurTeamHomepageOurTeam
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homepage-our-team.homepage-our-team'
     >;
-    OurTeamDescription: Schema.Attribute.Text &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    OurTeamSecondTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    OurTeamSliderImages: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios',
-      true
-    >;
-    OurTeamTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     publishedAt: Schema.Attribute.DateTime;
+    SectionTitle: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    Title: Schema.Attribute.String &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -943,8 +970,7 @@ export interface ApiHomepageTreatmentHomepageTreatment
   extends Struct.SingleTypeSchema {
   collectionName: 'homepage_treatments';
   info: {
-    description: '';
-    displayName: 'Homepage-treatment';
+    displayName: 'HomepageTreatment';
     pluralName: 'homepage-treatments';
     singularName: 'homepage-treatment';
   };
@@ -960,25 +986,25 @@ export interface ApiHomepageTreatmentHomepageTreatment
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::homepage-treatment.homepage-treatment'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    TreatmentDescription: Schema.Attribute.Text &
+    SectionTitle: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    TreatmentDescriptionTitle: Schema.Attribute.String &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    TreatmentTitle: Schema.Attribute.String &
+    Title: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1665,10 +1691,11 @@ declare module '@strapi/strapi' {
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
       'api::consultation-page.consultation-page': ApiConsultationPageConsultationPage;
+      'api::consultation.consultation': ApiConsultationConsultation;
       'api::contact-page.contact-page': ApiContactPageContactPage;
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::global.global': ApiGlobalGlobal;
-      'api::homepage-about-us.homepage-about-us': ApiHomepageAboutUsHomepageAboutUs;
+      'api::homepage-aboutus.homepage-aboutus': ApiHomepageAboutusHomepageAboutus;
       'api::homepage-blog.homepage-blog': ApiHomepageBlogHomepageBlog;
       'api::homepage-google-review.homepage-google-review': ApiHomepageGoogleReviewHomepageGoogleReview;
       'api::homepage-our-team.homepage-our-team': ApiHomepageOurTeamHomepageOurTeam;

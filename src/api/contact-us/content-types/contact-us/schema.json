@@ -4,8 +4,7 @@
   "info": {
     "singularName": "contact-us",
     "pluralName": "contact-uses",
-    "displayName": "ContactUs",
-    "description": ""
+    "displayName": "ContactUs"
   },
   "options": {
     "draftAndPublish": true
@@ -16,7 +15,7 @@
     }
   },
   "attributes": {
-    "ContactUsTitle": {
+    "Title": {
       "type": "string",
       "pluginOptions": {
         "i18n": {
@@ -24,7 +23,7 @@
         }
       }
     },
-    "ContactUsDescription": {
+    "Description": {
       "type": "text",
       "pluginOptions": {
         "i18n": {
