@@ -1,10 +1,11 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "homepage_google_reviews",
   "info": {
     "singularName": "homepage-google-review",
     "pluralName": "homepage-google-reviews",
-    "displayName": "Homepage-google_review"
+    "displayName": "Homepage-google_review",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

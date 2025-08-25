@@ -658,9 +658,10 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   };
 }
 
-export interface ApiContactUsContactUs extends Struct.CollectionTypeSchema {
+export interface ApiContactUsContactUs extends Struct.SingleTypeSchema {
   collectionName: 'contact_uses';
   info: {
+    description: '';
     displayName: 'ContactUs';
     pluralName: 'contact-uses';
     singularName: 'contact-us';
@@ -734,7 +735,7 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
 }
 
 export interface ApiHomepageAboutUsHomepageAboutUs
-  extends Struct.CollectionTypeSchema {
+  extends Struct.SingleTypeSchema {
   collectionName: 'homepage_about_uses';
   info: {
     description: '';
@@ -782,41 +783,10 @@ export interface ApiHomepageAboutUsHomepageAboutUs
   };
 }
 
-export interface ApiHomepageBannerHomepageBanner
-  extends Struct.CollectionTypeSchema {
-  collectionName: 'homepage_banners';
-  info: {
-    displayName: 'Homepage Banner';
-    pluralName: 'homepage-banners';
-    singularName: 'homepage-banner';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    homepage_banner: Schema.Attribute.Media<
-      'images' | 'files' | 'videos' | 'audios'
-    >;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::homepage-banner.homepage-banner'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-  };
-}
-
-export interface ApiHomepageBlogHomepageBlog
-  extends Struct.CollectionTypeSchema {
+export interface ApiHomepageBlogHomepageBlog extends Struct.SingleTypeSchema {
   collectionName: 'homepage_blogs';
   info: {
+    description: '';
     displayName: 'Homepage-blog';
     pluralName: 'homepage-blogs';
     singularName: 'homepage-blog';
@@ -864,9 +834,10 @@ export interface ApiHomepageBlogHomepageBlog
 }
 
 export interface ApiHomepageGoogleReviewHomepageGoogleReview
-  extends Struct.CollectionTypeSchema {
+  extends Struct.SingleTypeSchema {
   collectionName: 'homepage_google_reviews';
   info: {
+    description: '';
     displayName: 'Homepage-google_review';
     pluralName: 'homepage-google-reviews';
     singularName: 'homepage-google-review';
@@ -914,7 +885,7 @@ export interface ApiHomepageGoogleReviewHomepageGoogleReview
 }
 
 export interface ApiHomepageOurTeamHomepageOurTeam
-  extends Struct.CollectionTypeSchema {
+  extends Struct.SingleTypeSchema {
   collectionName: 'homepage_our_teams';
   info: {
     description: '';
@@ -969,9 +940,10 @@ export interface ApiHomepageOurTeamHomepageOurTeam
 }
 
 export interface ApiHomepageTreatmentHomepageTreatment
-  extends Struct.CollectionTypeSchema {
+  extends Struct.SingleTypeSchema {
   collectionName: 'homepage_treatments';
   info: {
+    description: '';
     displayName: 'Homepage-treatment';
     pluralName: 'homepage-treatments';
     singularName: 'homepage-treatment';
@@ -1697,7 +1669,6 @@ declare module '@strapi/strapi' {
       'api::contact-us.contact-us': ApiContactUsContactUs;
       'api::global.global': ApiGlobalGlobal;
       'api::homepage-about-us.homepage-about-us': ApiHomepageAboutUsHomepageAboutUs;
-      'api::homepage-banner.homepage-banner': ApiHomepageBannerHomepageBanner;
       'api::homepage-blog.homepage-blog': ApiHomepageBlogHomepageBlog;
       'api::homepage-google-review.homepage-google-review': ApiHomepageGoogleReviewHomepageGoogleReview;
       'api::homepage-our-team.homepage-our-team': ApiHomepageOurTeamHomepageOurTeam;

@@ -1,10 +1,11 @@
 {
-  "kind": "collectionType",
+  "kind": "singleType",
   "collectionName": "homepage_blogs",
   "info": {
     "singularName": "homepage-blog",
     "pluralName": "homepage-blogs",
-    "displayName": "Homepage-blog"
+    "displayName": "Homepage-blog",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
